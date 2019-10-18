@@ -1,0 +1,2342 @@
+<!DOCTYPE html>
+<!-- saved from url=(0086)https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&utm_medium=referral -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="origin">
+    <meta property="og:description" content="jsPlumb DOCS 公司要开始做流程控制器，所以先调研下jsPlumb，下文是阅读jsPlumb提供的document所产生的归纳总结 setup 如果不使用jQuery或者类jQuery库，则">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园</title>
+    
+    <link rel="stylesheet" href="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/blog-common.min.css">
+    <link id="MainCss" rel="stylesheet" href="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/bundle-bluesky.min.css">
+    <link type="text/css" rel="stylesheet" href="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/custom.css">
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/bundle-bluesky-mobile.min.css">
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/leomYili/rss">
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/leomYili/rsd.xml">
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/leomYili/wlwmanifest.xml">
+    <script src="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/amp4ads-host-v0.js.下载"></script><script src="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/pubads_impl_rendering_2019100301.js.下载"></script><script async="" src="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/analytics.js.下载"></script><script src="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/jquery-2.2.0.min.js.下载"></script>
+    <script src="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/blog-common.min.js.下载"></script>
+    <script>
+        var currentBlogId = 240278;
+        var currentBlogApp = 'leomYili';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+    </script>
+    
+    
+    
+<link rel="preload" href="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/f.txt" as="script"><script type="text/javascript" src="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/f.txt"></script><script src="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/pubads_impl_2019100301.js.下载" async=""></script><link rel="prefetch" href="https://tpc.googlesyndication.com/safeframe/1-0-35/html/container.html"></head>
+<body>
+    <a name="top"></a>
+    
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/leomYili/"><img id="blogLogo" src="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/logo.gif" alt="返回主页"></a>	
+<a id="" href="https://blog.csdn.net/meixu568/article/details/81871793"><img id="blogLogo" src="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/leomYili/">苏打水滴</a>
+</h1>
+<h2>
+
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/leomYili/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/leomYili">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/leomYili/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+14&nbsp; </span>
+<span id="stats_article_count">文章 - 
+0&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+63</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class="postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/leomYili/p/6346526.html">jsPlumb.jsAPI阅读笔记(官方文档翻译)</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+    <h1 id="jsplumb-docs">jsPlumb DOCS</h1>
+<blockquote>
+<p>公司要开始做流程控制器，所以先调研下jsPlumb，下文是阅读jsPlumb提供的document所产生的归纳总结
+<a id="" href="https://blog.csdn.net/meixu568/article/details/81871793">另一篇总结,比较详细</a>
+<a id="" href="https://www.jb51.net/article/76026.htm">另一篇总结</a>
+<a id="" href="https://www.cnblogs.com/sunjie9606/p/4277086.html">另一篇总结,比较全</a>
+<a id="" href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&utm_medium=referral">官方文档翻译</a>
+<a id="" href="https://www.cnblogs.com/dyllove98/archive/2013/07/28/3221763.html">有例子</a>
+<a href="https://segmentfault.com/a/1190000013422507?utm_source=tag-newest">也是官方翻译</a>
+<a href="https://www.jianshu.com/p/3b40d94d3166">有实现的例子</a>
+<a href="https://www.cnblogs.com/xcj26/p/9870734.html">官网文档,整理的比较清楚</a>
+<a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&utm_medium=referral">另一个官网笔记</a>
+<a href="https://jsplumbtoolkit.com//">成熟的demo,下载要钱</a>
+<a href="https://wdd.js.org/jsplumb-chinese-tutorial/#/?id=_21-%E8%BF%9E%E6%8E%A5%E4%B8%A4%E4%B8%AA%E8%8A%82%E7%82%B9">官网文档</a>
+</p>
+</blockquote>
+<h2 id="setup">setup</h2>
+<p>如果不使用jQuery或者类jQuery库，则传入的节点得用id的形式,否则jsPlumb会为元素设置一个id。</p>
+<pre><code class="hljs javascript">jsPlumb.ready(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  ···
+});
+<span class="hljs-comment">//or</span>
+jsPlumb.bind(<span class="hljs-string">"ready"</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  ···
+});</code></pre>
+<h2 id="最好确认jsplumb加载完毕之后再开始使用相关功能">最好确认jsPlumb加载完毕之后，再开始使用相关功能。</h2>
+<p>默认情况下，jsPlumb在浏览器的窗口中注册，为整个页面提供一个静态实例，所以也可以把它看成一个类，来实例化jsPlumb：</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> firstInstance = jsPlumb.getInstance();</code></pre>
+<hr>
+<p>如果在使用过程中，元素的id产生了新的变化（多是生成了新的节点，旧的节点被删除了）。则可以：</p>
+<ul>
+<li><code>jsPlumb.setId(el,newId)</code></li>
+<li><h2 id="jsplumb.setidchangedoldidnewid"><code>jsPlumb.setIdChanged(oldId,newId)</code></h2></li>
+</ul>
+<p>在使用过程中，每个部分的<code>z-index</code>需要注意，否则连线可能会被覆盖，jsPlumb会为每个节点设置端点，用于定位端点。</p>
+<p>jsPlumb也提供了拖动方法：</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> secondInstance = jsPlumb.getInstance();
+secondInstance.draggable(<span class="hljs-string">"some element"</span>);</code></pre>
+<hr>
+<p>重绘，每次使用连线时，都会导致相关联的元素重绘，但当加载大量数据时，可以使用：</p>
+<pre><code class="hljs javascript">jsPlumb.setSuspendDrawing(<span class="hljs-literal">true</span>);
+
+jsPlumb.setSuspendDrawing(<span class="hljs-literal">false</span>,<span class="hljs-literal">true</span>);</code></pre>
+<p>这里第二个参数的true，会使整个jsPlumb立即重绘。<br>
+也可以使用batch：</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">jsPlumb</span><span class="hljs-selector-class">.batch</span>(<span class="hljs-selector-tag">fn</span>,<span class="hljs-selector-attr">[doNotRepaintAfterwards]</span>);</code></pre>
+<p>这个函数也是一样，可以先将所有的连接全部注册好，再一次重绘。<br>
+这个方法在1.7.3版本之前名称为<code>doWhileSuspended</code>.</p>
+<h2 id="config-defaults">config defaults</h2>
+<p>当然，jsPlumb会有一些默认的参数：<br>
+分为全局默认参数和连线默认参数，</p>
+<pre><code class="hljs groovy"><span class="hljs-string">Anchor :</span> <span class="hljs-string">"BottomCenter"</span>,<span class="hljs-comment">//端点的定位点的位置声明（锚点）：left，top，bottom等</span>
+<span class="hljs-string">Anchors :</span> [ <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span> ],<span class="hljs-comment">//多个锚点的位置声明</span>
+<span class="hljs-string">ConnectionsDetachable   :</span> <span class="hljs-literal">true</span>,<span class="hljs-comment">//连接是否可以使用鼠标默认分离</span>
+<span class="hljs-string">ConnectionOverlays  :</span> [],<span class="hljs-comment">//附加到每个连接的默认重叠</span>
+<span class="hljs-string">Connector :</span> <span class="hljs-string">"Bezier"</span>,<span class="hljs-comment">//要使用的默认连接器的类型：折线，流程等</span>
+<span class="hljs-string">Container :</span> <span class="hljs-literal">null</span>,<span class="hljs-comment">//设置父级的元素，一个容器</span>
+<span class="hljs-string">DoNotThrowErrors  :</span> <span class="hljs-literal">false</span>,<span class="hljs-comment">//如果请求不存在的Anchor，Endpoint或Connector，是否会抛出</span>
+<span class="hljs-string">DragOptions :</span> { },<span class="hljs-comment">//用于配置拖拽元素的参数</span>
+<span class="hljs-string">DropOptions :</span> { },<span class="hljs-comment">//用于配置元素的drop行为的参数</span>
+<span class="hljs-string">Endpoint :</span> <span class="hljs-string">"Dot"</span>,<span class="hljs-comment">//端点（锚点）的样式声明（Dot）</span>
+<span class="hljs-string">Endpoints :</span> [ <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span> ],<span class="hljs-comment">//多个端点的样式声明（Dot）</span>
+<span class="hljs-string">EndpointOverlays :</span> [ ],<span class="hljs-comment">//端点的重叠</span>
+<span class="hljs-string">EndpointStyle :</span> { <span class="hljs-string">fill :</span> <span class="hljs-string">"#456"</span> },<span class="hljs-comment">//端点的css样式声明</span>
+<span class="hljs-string">EndpointStyles :</span> [ <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span> ],<span class="hljs-comment">//同上</span>
+<span class="hljs-string">EndpointHoverStyle :</span> <span class="hljs-literal">null</span>,<span class="hljs-comment">//鼠标经过样式</span>
+<span class="hljs-string">EndpointHoverStyles :</span> [ <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span> ],<span class="hljs-comment">//同上</span>
+<span class="hljs-string">HoverPaintStyle :</span> <span class="hljs-literal">null</span>,<span class="hljs-comment">//鼠标经过线的样式</span>
+<span class="hljs-string">LabelStyle :</span> { <span class="hljs-string">color :</span> <span class="hljs-string">"black"</span> },／／标签的默认样式。
+<span class="hljs-string">LogEnabled :</span> <span class="hljs-literal">false</span>,<span class="hljs-comment">//是否打开jsPlumb的内部日志记录</span>
+<span class="hljs-string">Overlays :</span> [ ],<span class="hljs-comment">//重叠</span>
+<span class="hljs-string">MaxConnections :</span> <span class="hljs-number">1</span>,<span class="hljs-comment">//最大连接数</span>
+<span class="hljs-string">PaintStyle :</span> { <span class="hljs-string">lineWidth :</span> <span class="hljs-number">8</span>, <span class="hljs-string">stroke :</span> <span class="hljs-string">"#456"</span> },<span class="hljs-comment">//连线样式</span>
+<span class="hljs-string">ReattachConnections :</span> <span class="hljs-literal">false</span>,<span class="hljs-comment">//是否重新连接使用鼠标分离的线</span>
+<span class="hljs-string">RenderMode :</span> <span class="hljs-string">"svg"</span>,<span class="hljs-comment">//默认渲染模式</span>
+<span class="hljs-string">Scope :</span> <span class="hljs-string">"jsPlumb_DefaultScope"</span><span class="hljs-comment">//范围，标识</span></code></pre>
+<p>如果是全局则可以使用<code>jsPlumb.importDefaults({···})</code>，<br>
+也可以在实例化时，重新定义<code>jsPlumb.getInstance({···})</code>，</p>
+<h2 id="basic-concepts">Basic Concepts</h2>
+<p>jsPlumb关键点就是连接线，从上面也可以看出，大部分的配置项都是为了线而设。<br>
+其分为五个方面：</p>
+<ul>
+<li>Anchor：锚点位置</li>
+<li>Endpoint：端点，连接的起点或终点</li>
+<li>Connector：连线，连接两个节点的直观表现，有四种默认类型：Bezier（贝塞尔曲线），Straight（直线），Flowchart（流程图），State machine（状态机）</li>
+<li>Overlay：装饰连接器的组件，类似箭头之类</li>
+<li>Group：包含在某个其他元素中的一组元素，可以折叠，导致与所有组成员的连接被合并到折叠的组容器上。</li>
+</ul>
+<h3 id="anchor">Anchor</h3>
+<p>锚点位置有四种类型：</p>
+<ul>
+<li>Static：静态，会固定到元素上的某个点，不会移动</li>
+<li>Dynamic：动态，是静态锚的集合，就是jsPlumb每次连接时选择最合适的锚</li>
+<li>Perimeter anchors：周边锚，动态锚的应用。</li>
+<li><h2 id="continuous-anchors连续锚">Continuous anchors：连续锚</h2></li>
+</ul>
+<ol>
+<li>Static<br>
+jsPlumb有九个默认位置，元素的四个角，元素的中心，元素的每个边的中点。</li>
+</ol>
+<ul>
+<li>Top(TopCenter),TopRight,TopLeft</li>
+<li>Right(RightMiddle)</li>
+<li>Bottom(BottomCenter),BottomRight,BottomLeft</li>
+<li>Left(LeftMiddle)</li>
+<li>center<br>
+可以使用基于数组的形式来定义锚点位置：[x,y,dx,dy,offsetX,offsetY]。<br>
+[0,0]表示节点的左上角。<br>
+x表示锚点在横轴上的距离，y表示锚点在纵轴上的距离，这两个值可以从0到1来设置，0.5为center。<br>
+而dx表示锚点向横轴射出线，dy表示锚点向纵轴射出线，有0，-1，1三个值来设置。0为不放射线。<br>
+offsetX表示锚点偏移量x（px），offsetY表示锚点偏移量y（px）。</li>
+</ul>
+<ol>
+<li>Dynamic Anchors<br>
+选择每当某物移动或在UI中绘制时最合适的位置。</li>
+</ol>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> dynamicAnchors = [ [<span class="hljs-number">0.2</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>],<span class="hljs-string">"Top"</span>,<span class="hljs-string">"Bottom"</span> ]</code></pre>
+<p>在使用过程中，发现其就是指定锚点应该出现在哪个地方。jsPlumb会选取最近的点，来当作锚点。可以设置多个点，来当作可能出现的锚点。<br>
+当然，jsPlumb自带了默认的参数，<code>AutoDefault</code>。其实与<code>["Top","Right","Bottom","Left"]</code>相同。</p>
+<ol>
+<li>Perimeter Anchors<br>
+jsPlumb提供了六种形状：</li>
+</ol>
+<ul>
+<li>Circle</li>
+<li>Ellipse</li>
+<li>Triangle</li>
+<li>Diamond</li>
+<li>Rectangle</li>
+<li>Square</li>
+</ul>
+<ol>
+<li>Continuous Anchors</li>
+</ol>
+<pre><code class="hljs less"><span class="hljs-attribute">anchor</span>:<span class="hljs-string">"Continuous"</span>
+<span class="hljs-comment">//or</span>
+<span class="hljs-attribute">anchor</span>:[<span class="hljs-string">"Continuous"</span>,{<span class="hljs-attribute">faces</span>:[<span class="hljs-string">"top"</span>,<span class="hljs-string">"left"</span>]}]</code></pre>
+<p>faces同样有四个值：<code>top</code>,<code>left</code>,<code>right</code>,<code>bottom</code>。</p>
+<h3 id="将css类与anchors相关联">将CSS类与Anchors相关联</h3>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> ep = jsPlumb.addEndpoint(<span class="hljs-string">"ele1"</span>,{
+  <span class="hljs-attr">anchor</span>:[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-string">"test"</span>]
+});</code></pre>
+<p>也可以修改前缀：</p>
+<pre><code class="hljs javascript">jsPlumb.endpointAnchorClass=<span class="hljs-string">"anchor_"</span>;</code></pre>
+<h3 id="connectors">Connectors</h3>
+<p>连接器是实际连接UI元素的线，默认连接器是贝塞尔曲线，也就是默认值是"Bezier";<br>
+这里才是画线的地方，</p>
+<ul>
+<li>Bezier：它有一个配置项，curviness（弯曲度），默认为150.这定义了Bezier的控制点与锚点的距离</li>
+<li>Straight：在两个端点之间绘制一条直线，支持两个配置参数：stub，默认为0,<em>是最小的长度</em>,。gap，默认为0,<em>距离锚点的距离,可以是number也可以是[number,number]</em></li>
+<li>Flowchart：由一系列垂直或水平段组成的连接。支持四个参数，stub，默认为30；alwaysRespectStubs，默认为false；gap，默认为0；midpoint，默认为0.5,<em>转折点,判断线拐弯的地方,最大为1</em>；cornerRadius，默认为0<em>拐角的弧度</em>；</li>
+<li>StateMachine：状态器，支持在同一元素上开始和结束的连接，支持的参数有：margin，默认为5；curviness，默认为10；proximityLimit，默认为80；</li>
+</ul>
+<h3 id="endpoints">Endpoints</h3>
+<p>端点的配置和外观参数。<br>
+jsPlumb带有四个端点实现-点，矩形，空白和图像，可以在使用connect(),addEndpoint(),makeSource()或jsPlumb.makeTarget时使用endpoint参数指定Endpoint属性。</p>
+<h4 id="给端点进行配置">给端点进行配置</h4>
+<ul>
+<li>jsPlumb.connect(),创建连接的时候可以配置端点的属性</li>
+<li>jsPlumb.addEndpoint(),创建一个新的端点时配置属性</li>
+<li>jsPlumb.makeSource(),配置元素并随后从该元素中拖动连接时，将创建并分配一个新的端点</li>
+</ul>
+<h4 id="端点的预设类型">端点的预设类型</h4>
+<ol>
+<li><p>Dot：支持三个参数：<br>
+radius，默认为10px，定义圆点的半径<br>
+cssClass，附加到Endpoint创建的元素的CSS类<br>
+hoverClass，一个CSS类，当鼠标悬停在元素或连接的线上时附加到EndPoint创建的元素</p></li>
+<li><p>Rectangle：支持的参数：<br>
+width，默认为20，定义矩形的宽度<br>
+height，默认为20，定义矩形的高度<br>
+cssClass，附加到Endpoint创建的元素的CSS类<br>
+hoverClass，当鼠标悬停在元素或连接的线上时附加到EndPoint创建的元素</p></li>
+<li>image：从给定的URL中绘制图像，支持三个参数：<br>
+src，必选，指定要使用的图像的URL，<br>
+cssClass，附加到Endpoint创建的元素的CSS类<br>
+hoverClass，当鼠标悬停在元素或连接的线上时附加到EndPoint创建的元素，</li>
+<li><p>Blank：空白</p></li>
+</ol>
+<h3 id="overlays叠加层">Overlays（叠加层）</h3>
+<p>jsPlumb有五种类型的叠加：</p>
+<ol>
+<li><p>Arrow：箭头，在连接器的某个点绘制的可配置箭头，可以控制箭头的长度和宽度,参数有：<br>
+width，箭头尾部的宽度<br>
+length，从箭头的尾部到头部的距离<br>
+location，位置，建议使用0～1之间，当作百分比，便于理解<br>
+direction，方向，默认值为1（表示向前），可选-1（表示向后）<br>
+foldback，折回，也就是尾翼的角度，默认0.623，当为1时，为正三角<br>
+paintStyle，样式对象</p></li>
+<li><p>Label：在连接点的可配置标签，参数有<br>
+label，要显示的文本<br>
+cssClass，Label的可选css<br>
+labelStyle，标签外观的可选参数：font，适应canvas的字体大小参数；color，标签文本的颜色；padding，标签的可选填充，比例而不是px；borderWidth，标签边框的可选参数，默认为0；borderStyle，颜色等边框参数<br>
+location，位置，默认0.5<br>
+也可以使用getLabel，和setLabel，来获取和设置label的文本,可传函数</p></li>
+<li><p>PlainArrow：箭头形状为三角形<br>
+只是Arrow的foldback为1时的例子，参数与Arrow相同</p></li>
+<li><p>Diamond：棱形<br>
+同样是Arrow的foldback为2时的例子，参数与Arrow相同</p></li>
+<li>Custom：自定义<br>
+允许创建自定义的叠加层，需要使用create(),来返回DOM元素或者有效的选择器（ID）</li>
+</ol>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> conn = jsPlumb.connect({
+<span class="hljs-attr">source</span>:<span class="hljs-string">"d1"</span>,
+<span class="hljs-attr">target</span>:<span class="hljs-string">"d2"</span>,
+<span class="hljs-attr">paintStyle</span>:{
+  <span class="hljs-attr">stroke</span>:<span class="hljs-string">"red"</span>,
+  <span class="hljs-attr">strokeWidth</span>:<span class="hljs-number">3</span>
+},
+<span class="hljs-attr">overlays</span>:[
+  [<span class="hljs-string">"Custom"</span>, {
+    <span class="hljs-attr">create</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component</span>) </span>{
+      <span class="hljs-keyword">return</span> $(<span class="hljs-string">"&lt;select id='myDropDown'&gt;&lt;option value='foo'&gt;foo&lt;/option&gt;&lt;option value='bar'&gt;bar&lt;/option&gt;&lt;/select&gt;"</span>);
+    },
+    <span class="hljs-attr">location</span>:<span class="hljs-number">0.7</span>,
+    <span class="hljs-attr">id</span>:<span class="hljs-string">"customOverlay"</span>
+  }]
+]
+});</code></pre>
+<p>作为[0,1]的小数，其表示沿着由连接器内接的路径的一些成比例的行程，默认值为0.5。<br>
+作为大于1的整数，表示从起点沿连接器行进的某些绝对像素数。等于1时，在终点。<br>
+作为小于零的整数，其指示沿着连接器从端点向后行进的一些绝对值的像素。等于0时，在起点。</p>
+<p>所有叠加层都支持：<br>
+getLocation-返回当前位置<br>
+setLocation-设置当前位置</p>
+<h4 id="添加叠加层">添加叠加层</h4>
+<p>例子：</p>
+<pre><code class="hljs less"><span class="hljs-selector-tag">jsPlumb</span><span class="hljs-selector-class">.connect</span>({
+  <span class="hljs-attribute">overlays</span>:[
+    <span class="hljs-string">"Arrow"</span>,
+      [ <span class="hljs-string">"Label"</span>, { <span class="hljs-attribute">label</span>:<span class="hljs-string">"foo"</span>, <span class="hljs-attribute">location</span>:<span class="hljs-number">0.25</span>, <span class="hljs-attribute">id</span>:<span class="hljs-string">"myLabel"</span> } ]
+    ]
+});</code></pre>
+<p>而在addEndpoint和makeSource方法中，则不能使用<code>overlays</code>,需要使用<code>connectOverlays</code>.<br>
+也可以使用<code>addOverlay</code>:</p>
+<pre><code class="hljs groovy">var e = jsPlumb.addEndpoint(<span class="hljs-string">"someElement"</span>);
+e.addOverlay([ <span class="hljs-string">"Arrow"</span>, { <span class="hljs-string">width:</span><span class="hljs-number">10</span>, <span class="hljs-string">height:</span><span class="hljs-number">10</span>, <span class="hljs-string">id:</span><span class="hljs-string">"arrow"</span> }]);</code></pre>
+<p>当然还有获取叠加层的方法：<code>getOverlay(id)</code>这里的id与元素中的id不同，只是组件在jsPlumb中的唯一标识而已，在控制台打印之后，能看到内部提供了很多方法,另外注意原型链中的方法。<br>
+<img src="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/798818-20170124101028597-554495399.png" alt="1"></p>
+<p>在官方的<code>Hiding/Showing Overlays</code>中，向我们展示了<code>setVisible</code>,<code>showOverlay(id)</code>,<code>hideOverlay(id)</code>，<code>removeOverlay(id)</code>等方法，当然，因为对象中有DOM元素，我们也可以使用其他方法来控制DOM元素。</p>
+<h3 id="groups">Groups</h3>
+<p>相当于给节点之间加入了分组的概念，一旦分组，那么就可以使用组来控制组下的所有元素。<br>
+但这里的分组仍然是在jsPlumb中建立索引，当有相关事例时，再进行介绍。</p>
+<h2 id="drag">Drag</h2>
+<p>如果不使用jsPlumb提供的拖动，则需要使用<code>repaint()</code>来对拖动之后的连线进行重绘。<br>
+而当修改了节点的层级，或者偏移则需要使用<code>revalidate(container)</code>来刷新。</p>
+<h2 id="establishing-connections">Establishing Connections</h2>
+<p>在上面的例子中，已经介绍了基本的连接方式<code>jsPlumb.connect({source:"element1",target:"element2"})</code>。<br>
+这种方式创建的连接线一旦移除，则创建的端点也会自动移除。如果不想端点被移除，则可以继续加参数，将<br>
+<code>deleteEndpointsOnDetach</code>设为false。如果不想鼠标能够移除连接线，则可以在局部配置中将<code>ConnectionsDetachable</code>设为false，或者在connect时，加入<code>detachable:false</code>。</p>
+<h3 id="拖放连接">拖放连接</h3>
+<p>一开始就要创建一个端点来作为源点</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> endpoint = jsPlumb.addEndpoint(<span class="hljs-string">'elementId'</span>,{<span class="hljs-attr">isSource</span>:<span class="hljs-literal">true</span>})</code></pre>
+<p>这样就可以从该端点拉线出去。<br>
+如果给另一个创建的点加入<code>isTarget:true</code>，则就可以用上面的点连入这个点。</p>
+<p>或者使用<code>makeSource</code>或者<code>makeTarget</code>：</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">jsPlumb</span><span class="hljs-selector-class">.makeSource</span>("<span class="hljs-selector-tag">ele1</span>",{
+  <span class="hljs-attribute">anchor</span>:<span class="hljs-string">"Continuous"</span>,
+  maxConnections:<span class="hljs-number">1</span>
+  ···
+})</code></pre>
+<p>上述例子中，如果配置了maxConnections，则最多只能出现这个参数的连线，一旦多于这个数目的连线，就可以用<code>onMaxConnections(params,originalEvent)</code>这个回调函数来做其他事.<br>
+<code>connect</code>与<code>makeSource，makeTarget</code>，都可以配置第三个参数，相当于公共配置参数，与第二个参数类似。<br>
+-----------------------------------------------------------------------</p>
+<p>在<code>connect</code>中如果使用<code>newConnection：true</code>参数，则会取消<code>makeTarget，makeSoucr，addEndpoint</code>中所添加的配置项,重绘连接线。</p>
+<p>而<code>makeTarget</code>也有<code>onMaxConnections</code>方法。<br>
+因为<code>makeTarget</code>包括上面介绍的<code>isTarget</code>都可以指向源点元素，所以，如果不想造成回环（自己连自己），则可以在<code>makeTarget</code>中设置<code>allowLoopback：false</code>.如果只想产生一个端点，而不是多个端点，则需要使用<code>uniqueEndpoint:true</code>.<br>
+默认情况下，使用makeTarget创建的端点将<code>deleteEndpointsOnDetach</code>设置为true，即删除连线，端点删除；如果不要删除，则需要手动改为false。<br>
+--------------------------------------------------------</p>
+<p>如果既配置了元素可拖动，又设置了元素可拖放连接，那jsPlumb没有办法区分拖动元素和从元素中拖动连接，所以它提供了<code>filter</code>方法。</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">jsPlumb</span><span class="hljs-selector-class">.makeSource</span>("<span class="hljs-selector-tag">foo</span>",{
+  <span class="hljs-attribute">filter</span>:<span class="hljs-string">"span"</span>,
+  filterExclude:true
+});</code></pre>
+<p>则除span元素的其他元素都可以创建拖放连接，filter也接受函数。<code>filter:function(event,element)</code>.</p>
+<p>也可以使用<code>isTarget("id")</code>,<code>isSource("id")</code>来判断节点是否成为了源点。<br>
+如果配置了source和target之后，想切换源的激活状态，则可以使用<code>setTargetEnabled(id)</code>,<code>setSourceEnabled(id)</code>。<br>
+如果想取消<code>makeTarget</code>和<code>makeSource</code>所创建的源点，可以使用：</p>
+<ul>
+<li>unmakeTarget("id")</li>
+<li>unmakeSource("id")</li>
+<li>unmakeEveryTarget</li>
+<li>unmakeEverySource</li>
+</ul>
+<h4 id="drag-and-drop-scope">Drag and Drop scope</h4>
+<p>如果使用了jsPlumb自带的drag或者drop，那么给端点配置scope是很有必要的，这意味着之后创建端点只能连接到对应scope的端点。如果不设置scope，其默认的scope是一样的。</p>
+<h2 id="removeing-nodes">Removeing Nodes</h2>
+<p>移除节点没什么好说的，关键还是要移除与之关联的端点和连接线。</p>
+<h3 id="removeing-connectionsendpoints">Removeing Connections／Endpoints</h3>
+<p><strong>Connections</strong></p>
+<ol>
+<li>detach</li>
+</ol>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> conn = jsPlumb.connect({...});
+jsPlumb.detach(conn);</code></pre>
+<p>如果使用该方法来删除连接线，那么会有几种情况：</p>
+<ul>
+<li>如果使用<code>jsPlumb.connect</code>创建的线，而且没有设置<code>deleteEndpointsOnDetach:false</code>,则使用detach时，端点也会一起被移除。</li>
+<li>如果通过makeSource配置的元素创建了连接线，而且没有设置<code>deleteEndpointsOnDetach:false</code>,则使用detach时，端点也会一起被移除。</li>
+<li>如果使用addEndpoint注册的元素通过鼠标创建了连接线，则不会删除端点。</li>
+</ul>
+<ol>
+<li><p>detachAllConnections(el,[params])<br>
+用于删除元素上的所有连接线。</p></li>
+<li><p>detachEveryConnection()<br>
+删除所有连接线。</p></li>
+</ol>
+<p><strong>Endpoints</strong></p>
+<ol>
+<li>deleteEndpoint<br>
+删除一个端点。</li>
+<li>deleteEveryEndpoint<br>
+删除所有的端点</li>
+</ol>
+<h2 id="connection-and-endpoint-types">Connection and Endpoint Types</h2>
+<p>可以通过提供的方法来动态的修改连接线或端点的样式。</p>
+<h3 id="connection-type">Connection Type</h3>
+<pre><code class="hljs javascript">jsPlumb.registerConnectionType(<span class="hljs-string">"example"</span>,{
+  <span class="hljs-attr">paintStyle</span>:{<span class="hljs-attr">stroke</span>:<span class="hljs-string">"blue"</span>,<span class="hljs-attr">strokeWidth</span>:<span class="hljs-number">5</span>},
+});
+<span class="hljs-keyword">var</span> c = jsPlumb.connect({<span class="hljs-attr">source</span>:<span class="hljs-string">"someDiv"</span>,<span class="hljs-attr">target</span>:<span class="hljs-string">"someOtherDiv"</span>});
+c.bind(<span class="hljs-string">"click"</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  c.setType(<span class="hljs-string">"example"</span>)
+});</code></pre>
+<p>当点击连接线时，会替换连接线的样式<br>
+也可以使用：</p>
+<pre><code class="hljs groovy">jsPlumb.registerConnectionTypes({
+  <span class="hljs-string">"basic"</span>:{
+<span class="hljs-symbol">    paintStyle:</span>{<span class="hljs-string">stroke:</span><span class="hljs-string">"blue"</span>,<span class="hljs-string">strokeWidth:</span><span class="hljs-number">7</span>}
+  },
+  <span class="hljs-string">"selected"</span>:{
+<span class="hljs-symbol">    paintStyle:</span>{<span class="hljs-string">stroke:</span><span class="hljs-string">"red"</span>,<span class="hljs-string">strokeWidth:</span><span class="hljs-number">5</span>}
+  }
+});
+
+c.bind(<span class="hljs-string">"click"</span>,function(){
+  c.toggleType(<span class="hljs-string">"selected"</span>);
+});</code></pre>
+<p>而type支持的属性都和css相关：</p>
+<ul>
+<li>anchor</li>
+<li>anchors</li>
+<li>detachable</li>
+<li>paintStyle</li>
+<li>hoverPaintStyle</li>
+<li>scope</li>
+<li>cssClass</li>
+<li>parameters</li>
+<li>overlays</li>
+<li>endpoint</li>
+</ul>
+<h3 id="endpoint-type">Endpoint type</h3>
+<pre><code class="hljs groovy">jsPlumb.registerEndpointTypes({
+  <span class="hljs-string">"basic"</span>:{
+<span class="hljs-symbol">    paintStyle:</span>{<span class="hljs-string">fill:</span><span class="hljs-string">"blue"</span>}
+  }
+});</code></pre>
+<p>端点的type支持的参数：</p>
+<ul>
+<li>paintStyle</li>
+<li>endpointStyle</li>
+<li>hoverPaintStyle</li>
+<li>endpointHoverStyle</li>
+<li>maxConnections</li>
+<li>connectorStyle</li>
+<li>connectorHoverStyle</li>
+<li>connector</li>
+<li>connectionType</li>
+<li>scope</li>
+<li>cssClass</li>
+<li>parameters</li>
+<li>overlays</li>
+</ul>
+<h2 id="events">Events</h2>
+<p>首先看个小例子：</p>
+<pre><code class="hljs javascript">jsPlumb.bind(<span class="hljs-string">"connection"</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">info</span>)</span>{
+  <span class="hljs-built_in">console</span>.log(info);
+});</code></pre>
+<p><code>connection(info,originalEvent)</code>即监听所有的连接事件。info包含的信息有：</p>
+<ul>
+<li>connection</li>
+<li>sourceId</li>
+<li>targetId</li>
+<li>source</li>
+<li>target</li>
+<li>sourceEndpoint</li>
+<li>targetEndpoint</li>
+</ul>
+<p><code>connectionDetached(info,originalEvent)</code>即监听当连接断掉时的事件。info类似<code>connection</code>.</p>
+<p>右键点击也有相应的<code>contextmenu</code>方法。</p>
+<p>关于connection和endpoint的事件方法，请参考官网api。<br>
+记录下overlay的事件。</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">jsPlumb</span><span class="hljs-selector-class">.connect</span>({
+  <span class="hljs-attribute">source</span>:<span class="hljs-string">"el1"</span>,
+  target:<span class="hljs-string">"el2"</span>,
+  overlays:[
+    [<span class="hljs-string">"Label"</span>,{
+      events:{
+        click:<span class="hljs-built_in">function</span>(labelOverlay,originalEvent){
+          console.<span class="hljs-built_in">log</span>(labelOverlay);
+        }
+      }
+      }
+    }],
+  ]
+})</code></pre>
+<p>同样，使用unbind方法，可以移除上面所添加的监听。</p>
+<h2 id="筛选jsplumb">筛选jsPlumb</h2>
+<p>使用<code>jsPlumb.select()</code>方法，用于在Connections列表上做筛选，打印一下值：<br>
+<img src="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/798818-20170124101048159-1841470559.png" alt="2"><br>
+就可以使用这些方法对于连接线来进行获取（get）和修改（set）。<br>
+还有<code>getConnections</code>,<code>getAllConnections()</code>等方法也可以获取到连接线，只不过这两个方法没有上面slect的方法，相当于静态属性</p>
+<p>使用<code>jsPlumb.selectEndpoints()</code>方法，用于在Endpoints上做筛选，同样有相应的方法。</p>
+<p><code>select()</code>和<code>selectEndpoints()</code>都有一个each方法，用于对筛选出的方法进行操作。</p>
+<h2 id="repainting-an-element-or-elements">Repainting an element or elements</h2>
+<p>当需要对修改过后的元素重新计算端点和连接线时，则可以使用</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">jsPlumb</span><span class="hljs-selector-class">.repaint</span>(<span class="hljs-selector-tag">el</span>,<span class="hljs-selector-attr">[ui]</span>)</code></pre>
+<p>或</p>
+<pre><code class="hljs less"><span class="hljs-selector-tag">jsPlumb</span><span class="hljs-selector-class">.repaintEverything</span>().</code></pre>
+<h2 id="element-ids">Element Ids</h2>
+<p>当元素上的id也被改变时，可以使用</p>
+<pre><code class="hljs less"><span class="hljs-selector-tag">jsPlumb</span><span class="hljs-selector-class">.setId</span>(el,newId);
+<span class="hljs-comment">//or</span>
+<span class="hljs-selector-tag">jsPlumb</span><span class="hljs-selector-class">.setIdChanged</span>(oldId,newId);</code></pre>
+<p>来重新对之前注册的节点进行修改。</p>
+<h1 id="小结">小结</h1>
+<p>前期调研完成，接下来开始使用jsPlumb做几个小例子。<br>
+demo地址: <a href="https://github.com/leomYili/Axis/tree/master/umlDemo" class="uri">https://github.com/leomYili/Axis/tree/master/umlDemo</a> 下载直接运行即可</p>
+
+</div>
+<div id="MySignature" style="display: block;">长路漫漫,与君共勉
+
+<div class="z-recommend">如果您看完本篇文章感觉不错，请点击一下右下角的<strong><span style="color: #ff0000">【<a>推荐</a>】</span></strong>来支持一下博主，谢谢！</div>
+<div>转载请注明，本人原创，违者侵删</div></div>
+<div class="clear"></div>
+<div id="blog_post_info_block"><div id="BlogPostCategory">
+    分类: 
+            <a href="https://www.cnblogs.com/leomYili/category/723995.html" target="_blank">javaScript</a>,             <a href="https://www.cnblogs.com/leomYili/category/723999.html" target="_blank">学习笔记</a></div>
+<div id="EntryTag">
+    标签: 
+            <a href="https://www.cnblogs.com/leomYili/tag/javascript/">javascript</a></div>
+
+    <div id="blog_post_info">
+<div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(6346526,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+        <a id="green_channel_follow" onclick="follow(&#39;d1463c14-4543-e511-b908-9dcfd8948a71&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="https://home.cnblogs.com/u/leomYili/" target="_blank"><img src="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/20150815210035.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="https://home.cnblogs.com/u/leomYili/">leomYili</a><br>
+            <a href="https://home.cnblogs.com/u/leomYili/followees/">关注 - 11</a><br>
+            <a href="https://home.cnblogs.com/u/leomYili/followers/">粉丝 - 20</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;d1463c14-4543-e511-b908-9dcfd8948a71&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(6346526,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">9</span>
+    </div>
+    <div class="buryit" onclick="votePost(6346526,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+
+<script type="text/javascript">
+    currentDiggType = 0;
+</script></div>
+    <div class="clear"></div>
+    <div id="post_next_prev">
+
+    <a href="https://www.cnblogs.com/leomYili/p/6215021.html" class="p_n_p_prefix">« </a> 上一篇：    <a href="https://www.cnblogs.com/leomYili/p/6215021.html" title="发布于 2016-12-23 15:43">JavaScript事件详解-jQuery的事件实现（三）</a>
+    <br>
+    <a href="https://www.cnblogs.com/leomYili/p/6472327.html" class="p_n_p_prefix">» </a> 下一篇：    <a href="https://www.cnblogs.com/leomYili/p/6472327.html" title="发布于 2017-02-27 10:10">Ajax的实现及使用-原生对象</a>
+
+</div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2017-01-24 10:09</span>&nbsp;<a href="https://www.cnblogs.com/leomYili/">leomYili</a> 阅读(<span id="post_view_count">32719</span>) 评论(<span id="post_comment_count">19</span>) <a href="https://i.cnblogs.com/EditPosts.aspx?postid=6346526" rel="nofollow"> 编辑</a> <a href="javascript:void(0)" onclick="AddToWz(6346526); return false;">收藏</a>
+</div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/highlight.min.js.下载"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 240278, cb_blogApp = 'leomYili', cb_blogUserGuid = 'd1463c14-4543-e511-b908-9dcfd8948a71';
+    var cb_entryId = 6346526, cb_entryCreatedDate = '2017-01-24 10:09', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder">
+
+<div id="comment_pager_top">
+    
+</div>
+
+<br>
+<div class="feedback_area_title">评论列表</div>
+<div class="feedbackNoItems"><div class="feedbackNoItems"></div></div>	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#3701364" class="layer">#1楼</a>
+<a name="3701364" id="comment_anchor_3701364"></a>
+
+ 
+<span class="comment_date">2017-05-26 11:44</span>
+
+ 
+
+            <a id="a_comment_author_3701364" href="https://www.cnblogs.com/niwanglong385/" target="_blank">niwanglong385</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_3701364)" class="blog_comment_body">
+    楼主强悍，基本原理都理解总结了，期待你进一步的jsplumb教程
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3701364, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(3701364, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#3701519" class="layer">#2楼</a>
+<a name="3701519" id="comment_anchor_3701519"></a>
+[<span class="louzhu">楼主</span>]
+ 
+<span class="comment_date">2017-05-26 14:49</span>
+
+ 
+
+            <a id="a_comment_author_3701519" href="https://www.cnblogs.com/leomYili/" target="_blank">leomYili</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_3701519)" class="blog_comment_body">
+    多谢
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3701519, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(3701519, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_3701519_avatar" style="display:none">
+            https://pic.cnblogs.com/face/798818/20150815210035.png
+        </span>
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4088414" class="layer">#3楼</a>
+<a name="4088414" id="comment_anchor_4088414"></a>
+
+ 
+<span class="comment_date">2018-10-13 17:34</span>
+
+ 
+
+            <a id="a_comment_author_4088414" href="https://www.cnblogs.com/lwwen/" target="_blank">改个名字吧</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_4088414)" class="blog_comment_body">
+    想问下楼主 就是jsplumb maketarget的时候我想加一个箭头的overlays为什么就是始终加不了 但是他能识别Label而识别不了其他的叠加类型 这是为什么呢？ 望指教
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4088414, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(4088414, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_4088414_avatar" style="display:none">
+            https://pic.cnblogs.com/face/899994/20161209104254.png
+        </span>
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4088466" class="layer">#4楼</a>
+<a name="4088466" id="comment_anchor_4088466"></a>
+[<span class="louzhu">楼主</span>]
+ 
+<span class="comment_date">2018-10-13 19:14</span>
+
+ 
+
+            <a id="a_comment_author_4088466" href="https://www.cnblogs.com/leomYili/" target="_blank">leomYili</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_4088466)" class="blog_comment_body">
+    <a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4088414" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,4088414);">@</a>
+改个名字吧<br>首先可以在<a href="https://jsplumbtoolkit.com/community/doc/overlays.html" target="_blank">https://jsplumbtoolkit.com/community/doc/overlays.html</a> 中直接粘贴实例到你本地环境中去进行替换<br>不过你这里应该是想从一个端点出发开始进行连线时，出现箭头及标签吧？如果是这样，请参考：<br>jsPlumb.addEndpoint("someDiv", {<br>...<br>overlays:[<br>[ "Label", { label:"foo", id:"label", location:[-0.5, -0.5] } ]<br>],<br>connectorOverlays:[ <br>[ "Arrow", { width:10, length:30, location:1, id:"arrow" } ],<br>[ "Label", { label:"foo", id:"label" } ]<br>],<br>...<br>});<br><br>或者<br>jsPlumb.makeSource("someDiv", {<br>...<br>endpoint:{<br>connectorOverlays:[ <br>[ "Arrow", { width:10, length:30, location:1, id:"arrow" } ], <br>[ "Label", { label:"foo", id:"label" } ]<br>]<br>}<br>...<br>});<br>同样能解决问题
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4088466, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(4088466, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_4088466_avatar" style="display:none">
+            https://pic.cnblogs.com/face/798818/20150815210035.png
+        </span>
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4088502" class="layer">#5楼</a>
+<a name="4088502" id="comment_anchor_4088502"></a>
+
+ 
+<span class="comment_date">2018-10-13 19:45</span>
+
+ 
+
+            <a id="a_comment_author_4088502" href="https://www.cnblogs.com/lwwen/" target="_blank">改个名字吧</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_4088502)" class="blog_comment_body">
+    恩恩 <br>我用的是makeSource呢<br>然后我是跟官网一样配置的<br>instance.makeSource(el, {<br>                        filter: ".ep",<br>                        anchor: "Continuous",<br>                        connector: ['Flowchart'],<br>                        connectorStyle: { stroke: '#E72F1F', strokeWidth: 2, dashstyle: "4 2" },<br> <br>                        extract: {<br>                            "action": "the-action"<br>                        },<br>  <br>                        endpoint: {<br>                            connectorOverlays: [<br>                                ["Arrow", { width: 10, length: 30, location: 1, id: "arrow" }],<br>                                ["Label", { label: "foo", id: "label" }]<br>                            ],<br>                        },<br>    <br><br>                            maxConnections: 2,<br>                            onMaxConnections: function(info, e) {<br>                                alert("Maximum connections (" + info.maxConnections + ") reached");<br>                            }<br>                        });<br>恩就是想让他元素拖放连线的时候出现一个箭头 <br>但是这时页面就出现了一个报错<br>jsplumb.min.js:4 Uncaught TypeError: d.clone is not a function<br>    at b.Endpoint.prepareEndpoint (jsplumb.min.js:4)<br>    at b.Endpoint.setEndpoint (jsplumb.min.js:4)<br>    at new b.Endpoint (jsplumb.min.js:4)<br>    at R (jsplumb.min.js:2)<br>    at a.jsPlumbInstance.addEndpoint (jsplumb.min.js:2)<br>    at a.jsPlumbInstance.&lt;anonymous&gt; (jsplumb.min.js:3)<br>就这样的 <br>我也不知道为什么 <br>我看了一下我的jsplumb的版本是2.6.9看起来应该并没有问题<br>望赐教
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4088502, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(4088502, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_4088502_avatar" style="display:none">
+            https://pic.cnblogs.com/face/899994/20161209104254.png
+        </span>
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4088504" class="layer">#6楼</a>
+<a name="4088504" id="comment_anchor_4088504"></a>
+
+ 
+<span class="comment_date">2018-10-13 19:54</span>
+
+ 
+
+            <a id="a_comment_author_4088504" href="https://www.cnblogs.com/lwwen/" target="_blank">改个名字吧</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_4088504)" class="blog_comment_body">
+    然后我直接在makesrouce那里配置了<br>                    overlays: [<br>                            ["Arrow", { width: 10, length: 30, location: 1, id: el }],<br>                                ["Label", { label: "foo", id: el }]<br>                            ],<br>但是结果却是显示不出来这个箭头  只显示出来了label<br>而且很奇怪的是 我配置这个overlays的时候 能识别Lable,但是其他的Arrow, PlainArrow..等等这些都实现不出来<br>不知道是为什么<br>望楼主能不吝赐教<img src="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/899994-20181013195451484-1722642510.png" alt="" border="0" "="">
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4088504, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(4088504, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_4088504_avatar" style="display:none">
+            https://pic.cnblogs.com/face/899994/20161209104254.png
+        </span>
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4088510" class="layer">#7楼</a>
+<a name="4088510" id="comment_anchor_4088510"></a>
+[<span class="louzhu">楼主</span>]
+ 
+<span class="comment_date">2018-10-13 20:03</span>
+
+ 
+
+            <a id="a_comment_author_4088510" href="https://www.cnblogs.com/leomYili/" target="_blank">leomYili</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_4088510)" class="blog_comment_body">
+    <a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4088504" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,4088504);">@</a>
+改个名字吧<br>那只能看下你的makeSource是怎么处理的了，你的id为何是一致的，如果是一致的，默认会覆盖掉之前的浮层，你可以试下只留一个arrow,是否展示
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4088510, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(4088510, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_4088510_avatar" style="display:none">
+            https://pic.cnblogs.com/face/798818/20150815210035.png
+        </span>
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4088515" class="layer">#8楼</a>
+<a name="4088515" id="comment_anchor_4088515"></a>
+
+ 
+<span class="comment_date">2018-10-13 20:06</span>
+
+ 
+
+            <a id="a_comment_author_4088515" href="https://www.cnblogs.com/lwwen/" target="_blank">改个名字吧</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_4088515)" class="blog_comment_body">
+    <a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4088510" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,4088510);">@</a>
+leomYili<br>恩 改成了endpoint: {<br>                connectorOverlays: [<br>                    ["Arrow", { width: 10, length: 30, location: 1, id: i }],<br>                    ["Label", { label: "foo", id: i }]<br>                ],<br>            },<br>唯一标识呢<br>i是我循环的一个变量 是唯一的<br>但是他还是出现那个报错<br>jsplumb.min.js:4 Uncaught TypeError: d.clone is not a function<br>    at b.Endpoint.prepareEndpoint (jsplumb.min.js:4)<br>    at b.Endpoint.setEndpoint (jsplumb.min.js:4)<br>    at new b.Endpoint (jsplumb.min.js:4)<br>    at R (jsplumb.min.js:2)<br>    at a.jsPlumbInstance.addEndpoint (jsplumb.min.js:2)<br>    at a.jsPlumbInstance.&lt;anonymous&gt; (jsplumb.min.js:3)<br>就是这样
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4088515, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(4088515, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_4088515_avatar" style="display:none">
+            https://pic.cnblogs.com/face/899994/20161209104254.png
+        </span>
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4088530" class="layer">#9楼</a>
+<a name="4088530" id="comment_anchor_4088530"></a>
+[<span class="louzhu">楼主</span>]
+ 
+<span class="comment_date">2018-10-13 20:12</span>
+
+ 
+
+            <a id="a_comment_author_4088530" href="https://www.cnblogs.com/leomYili/" target="_blank">leomYili</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_4088530)" class="blog_comment_body">
+    <a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4088515" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,4088515);">@</a>
+改个名字吧<br>因为jsplumb会捕获你的程序中的异常并抛出，所以可以在全局初始化instance中将LogEnabled修改为false，查看是否业务逻辑出错,我用的2.2.8版本，没有这个问题，你可以看下当前版本相关的文档
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4088530, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(4088530, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_4088530_avatar" style="display:none">
+            https://pic.cnblogs.com/face/798818/20150815210035.png
+        </span>
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4088536" class="layer">#10楼</a>
+<a name="4088536" id="comment_anchor_4088536"></a>
+
+ 
+<span class="comment_date">2018-10-13 20:17</span>
+
+ 
+
+            <a id="a_comment_author_4088536" href="https://www.cnblogs.com/lwwen/" target="_blank">改个名字吧</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_4088536)" class="blog_comment_body">
+    <a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4088530" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,4088530);">@</a>
+leomYili<br>恩恩 <br>楼主在makesrouce里面用了endpoint connectorOverlays是不会出错的吗？<br>版本的话我是用的最新版本 也是看官方文档的最新文档呢<br>所以的话这个应该不是版本问题<br>请问下楼主是有实验过在makesrouce里面用了endpoint connectorOverlays是不会出错的对吗？<br><br>因为我现在的一个项目是想要实现 他一开始元素之前有一个初始化的连线，这个连接的时候是没有箭头的<br><br>只有实现元素的一个拖放连线的时候才会需要有箭头的连线
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4088536, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(4088536, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_4088536_avatar" style="display:none">
+            https://pic.cnblogs.com/face/899994/20161209104254.png
+        </span>
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4088538" class="layer">#11楼</a>
+<a name="4088538" id="comment_anchor_4088538"></a>
+
+ 
+<span class="comment_date">2018-10-13 20:18</span>
+
+ 
+
+            <a id="a_comment_author_4088538" href="https://www.cnblogs.com/lwwen/" target="_blank">改个名字吧</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_4088538)" class="blog_comment_body">
+    <a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4088530" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,4088530);">@</a>
+leomYili<br>如果楼主的makesource里面用了connectorOverlays的箭头可以成功的话？能否看一下您的代码 看看是不是我配置错了什么？<br>谢谢
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4088538, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(4088538, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_4088538_avatar" style="display:none">
+            https://pic.cnblogs.com/face/899994/20161209104254.png
+        </span>
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4088541" class="layer">#12楼</a>
+<a name="4088541" id="comment_anchor_4088541"></a>
+
+ 
+<span class="comment_date">2018-10-13 20:21</span>
+
+ 
+
+            <a id="a_comment_author_4088541" href="https://www.cnblogs.com/lwwen/" target="_blank">改个名字吧</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_4088541)" class="blog_comment_body">
+    项目需求就类似于您另一篇博客里面的<br><img src="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/899994-20181013202042702-2126957929.png" alt="" border="0" "=""><br>望大佬赐教
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4088541, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(4088541, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_4088541_avatar" style="display:none">
+            https://pic.cnblogs.com/face/899994/20161209104254.png
+        </span>
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4088604" class="layer">#13楼</a>
+<a name="4088604" id="comment_anchor_4088604"></a>
+[<span class="louzhu">楼主</span>]
+ 
+<span class="comment_date">2018-10-13 21:25</span>
+
+ 
+
+            <a id="a_comment_author_4088604" href="https://www.cnblogs.com/leomYili/" target="_blank">leomYili</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_4088604)" class="blog_comment_body">
+    <a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4088541" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,4088541);">@</a>
+改个名字吧<br>我更新了文章,最后有个demo,稍微修改了下,好早之前的了,不过上面的问题应该可以解决
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4088604, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(4088604, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_4088604_avatar" style="display:none">
+            https://pic.cnblogs.com/face/798818/20150815210035.png
+        </span>
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4088623" class="layer">#14楼</a>
+<a name="4088623" id="comment_anchor_4088623"></a>
+
+ 
+<span class="comment_date">2018-10-13 21:55</span>
+
+ 
+
+            <a id="a_comment_author_4088623" href="https://www.cnblogs.com/lwwen/" target="_blank">改个名字吧</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_4088623)" class="blog_comment_body">
+    <a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4088604" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,4088604);">@</a>
+leomYili<br>恩恩 看到  谢谢楼主
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4088623, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(4088623, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_4088623_avatar" style="display:none">
+            https://pic.cnblogs.com/face/899994/20161209104254.png
+        </span>
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4099488" class="layer">#15楼</a>
+<a name="4099488" id="comment_anchor_4099488"></a>
+
+ 
+<span class="comment_date">2018-10-26 17:42</span>
+
+ 
+
+            <a id="a_comment_author_4099488" href="https://www.cnblogs.com/xcj26/" target="_blank">Sam Xiao</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_4099488)" class="blog_comment_body">
+    你这个用的是社区版的还是付费版的啊？
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4099488, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(4099488, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_4099488_avatar" style="display:none">
+            https://pic.cnblogs.com/face/48022/20150116085345.png
+        </span>
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4099520" class="layer">#16楼</a>
+<a name="4099520" id="comment_anchor_4099520"></a>
+[<span class="louzhu">楼主</span>]
+ 
+<span class="comment_date">2018-10-26 18:21</span>
+
+ 
+
+            <a id="a_comment_author_4099520" href="https://www.cnblogs.com/leomYili/" target="_blank">leomYili</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_4099520)" class="blog_comment_body">
+    <a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4099488" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,4099488);">@</a>
+Sam Xiao<br>社区版 ...
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4099520, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(4099520, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_4099520_avatar" style="display:none">
+            https://pic.cnblogs.com/face/798818/20150815210035.png
+        </span>
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4100798" class="layer">#17楼</a>
+<a name="4100798" id="comment_anchor_4100798"></a>
+
+ 
+<span class="comment_date">2018-10-29 13:49</span>
+
+ 
+
+            <a id="a_comment_author_4100798" href="https://www.cnblogs.com/xcj26/" target="_blank">Sam Xiao</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_4100798)" class="blog_comment_body">
+    你好：我下载你的源码运行的时候，<br>Axis-master/uml/dist/uml.html 此文件出现，如下错误信息。这是什么原因呢？<br><img src="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/48022-20181029134912097-1333356203.png" alt="" border="0" "="">
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4100798, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(4100798, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_4100798_avatar" style="display:none">
+            https://pic.cnblogs.com/face/48022/20150116085345.png
+        </span>
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4104181" class="layer">#18楼</a>
+<a name="4104181" id="comment_anchor_4104181"></a>
+[<span class="louzhu">楼主</span>]
+ 
+<span class="comment_date">2018-11-02 08:52</span>
+
+ 
+
+            <a id="a_comment_author_4104181" href="https://www.cnblogs.com/leomYili/" target="_blank">leomYili</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_4104181)" class="blog_comment_body">
+    <a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4100798" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,4100798);">@</a>
+Sam Xiao<br>抱歉,源库里我把公司部分API源码进行了删除,且之前没有对IE浏览器做兼容性处理,现在github中只有函数方法可以参考
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4104181, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(4104181, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        <span id="comment_4104181_avatar" style="display:none">
+            https://pic.cnblogs.com/face/798818/20150815210035.png
+        </span>
+
+			</div>
+		</div>
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;
+
+<span class="comment_actions">
+    
+    
+    
+    
+</span>
+
+
+				</div>
+				
+<a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#4339652" class="layer">#19楼</a>
+<a name="4339652" id="comment_anchor_4339652"></a>
+
+        <span id="comment-maxId" style="display:none">4339652</span>
+        <span id="comment-maxDate" style="display:none">2019/8/29 下午2:50:29</span>
+ 
+<span class="comment_date">2019-08-29 14:50</span>
+
+ 
+
+            <a id="a_comment_author_4339652" href="https://home.cnblogs.com/u/1484382/" target="_blank">前端小萌新#_#</a>
+
+			</div>
+			<div class="feedbackCon">
+				
+<div id="comment_body_4339652)" class="blog_comment_body">
+    楼主你用的哪个版本哇，我用的版本是jsplumb@2.9.3，没有找到groups方法诶
+</div>
+        <div class="comment_vote">
+            <span class="comment_error" style="color: red"></span>
+            <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(4339652, &#39;Digg&#39;, this.parentElement, false);">
+                支持(0)
+            </a>
+            <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(4339652, &#39;Bury&#39;, this.parentElement, false);">
+                反对(0)
+            </a>
+        </div>
+        
+
+			</div>
+		</div>
+
+<div id="comment_pager_bottom">
+    
+</div>
+
+
+</div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/leomYili/p/6346526.html?utm_source=itdadao&amp;utm_medium=referral#top">返回顶部</a></div>
+    <div id="comment_form_container"><div class="login_tips">
+    注册用户登录后才能发表评论，请 
+    <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a>
+     或 
+    <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，
+    <a href="https://www.cnblogs.com/">访问</a> 网站首页。
+</div></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-工控&#39;)">【推荐】超50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="https://www.jdcloud.com/cn/activity/year-end?utm_source=DMT_cnblogs&amp;utm_medium=CH&amp;utm_campaign=q4vm&amp;utm_term=Virtual-Machines" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-京东云&#39;)">【活动】京东云服务器_云主机低于1折，低价高性能产品备战双11</a><br><a href="https://www.ctyun.cn/activity/#/201910/ecs?hmsr=%E7%9C%8B%E7%9C%8B-%E5%8D%9A%E5%AE%A2%E5%9B%AD-10.16-10%E6%9C%88%E7%89%B9%E6%83%A0&amp;hmpl=&amp;hmcu=&amp;hmkw=&amp;hmci=?track=|cp:cz_blog|tgdy:46861|ttjh:shouyedingbuyoucefenlan|key:czkk12|pf:pc" target="_blank">【推荐】天翼云1C1G云主机特惠，3个月仅需43.8元，立即开通</a><br><a href="https://cloud.tencent.com/act/double11/reserve?fromSource=gwzcw.3000742.3000742.3000742&amp;utm_medium=cpc&amp;utm_id=gwzcw.3000742.3000742.3000742" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-腾讯云&#39;)">【优惠】腾讯云 11.1 1智惠上云，爆款提前购与双11活动同价</a><br><a href="https://www.cnblogs.com/cmt/p/11612966.html" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-华为云-AI有奖训练营&#39;)">【福利】学AI有奖：博客园&amp;华为云&nbsp;Modelarts 有奖训练营</a><br><a href="https://www.huodongxing.com/event/1514061072200" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;Link&#39;, &#39;click&#39;, &#39;T2-魔程&#39;)">【活动】魔程社区技术沙龙—移动测试应用专场等你报名</a><br></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/gpt.js.下载"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;" data-google-query-id="CNv0yY7youUCFUR2vQodUocNbw"><div id="google_ads_iframe_/1090369/C1_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C1_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C1_0" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="1" data-load-complete="true" src="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/saved_resource.html"></iframe></div></div>
+    </div>
+    <div id="under_post_news"><div class="recomm-block"><b>相关博文：</b><br>·  <a title="jsPlumb.jsAPI阅读笔记(官方文档翻译)" href="https://www.cnblogs.com/ysx215/p/7615677.html" target="_blank" onclick="clickRecomItmem(7615677)">jsPlumb.jsAPI阅读笔记(官方文档翻译)</a><br>·  <a title="jsPlumb.jsAPI阅读笔记(官方文档翻译)" href="https://www.cnblogs.com/zzsdream/p/10840129.html" target="_blank" onclick="clickRecomItmem(10840129)">jsPlumb.jsAPI阅读笔记(官方文档翻译)</a><br>·  <a title="jsPlumb.jsAPI阅读笔记(官方文档翻译)" href="https://www.cnblogs.com/leomYili/p/6346526.html" target="_blank" onclick="clickRecomItmem(6346526)">jsPlumb.jsAPI阅读笔记(官方文档翻译)</a><br>·  <a title="jsplumb" href="https://www.cnblogs.com/zzsdream/p/10899526.html" target="_blank" onclick="clickRecomItmem(10899526)">jsplumb</a><br>·  <a title="转：超级好用的流程图js框架" href="https://www.cnblogs.com/dragon2017/p/10716587.html" target="_blank" onclick="clickRecomItmem(10716587)">转：超级好用的流程图js框架</a><br></div></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;" data-google-query-id="CNz0yY7youUCFUR2vQodUocNbw">
+            
+        <div id="google_ads_iframe_/1090369/C2_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/1090369/C2_0" title="3rd party ad content" name="google_ads_iframe_/1090369/C2_0" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border: 0px; vertical-align: bottom;" data-google-container-id="2" data-load-complete="true" src="./jsPlumb.jsAPI阅读笔记(官方文档翻译) - leomYili - 博客园_files/saved_resource(1).html"></iframe></div></div>
+    </div>
+    <div id="under_post_kb">
+<div class="itnews c_ad_block">
+    <b>最新 IT 新闻</b>:
+    <br>
+ ·              <a href="https://news.cnblogs.com/n/644309/" target="_blank">中兴5G模组已打通5G NSA/SA网络数据业务</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/644308/" target="_blank">贾跃亭月收入高达9万美元！还要还1777年的债……</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/644307/" target="_blank">ASML公司Q3季度营收27.9亿欧元 EUV光刻机订单23台</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/644306/" target="_blank">遭黑客攻击，世界多地ATM自动吐钞票</a>
+            <br>
+ ·              <a href="https://news.cnblogs.com/n/644305/" target="_blank">台积电Q3营收679亿元 同比增长12.6%</a>
+            <br>
+    » <a href="https://news.cnblogs.com/" title="IT 新闻" target="_blank">更多新闻...</a>
+</div></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem"><!--done-->
+<h3 class="catListTitle">公告</h3>
+
+<div id="blog-news">
+    
+    <div id="profile_block">
+        昵称：
+        <a href="https://home.cnblogs.com/u/leomYili/">
+            leomYili
+        </a>
+        <br>
+        园龄：
+        <a href="https://home.cnblogs.com/u/leomYili/" title="入园时间：2015-08-15">
+            4年2个月
+        </a>
+        <br>
+        粉丝：
+        <a href="https://home.cnblogs.com/u/leomYili/followers/">
+            20
+        </a>
+        <br>
+        关注：
+        <a href="https://home.cnblogs.com/u/leomYili/followees/">
+            11
+        </a>
+        <div id="p_b_follow">
+<a href="javascript:void(0)" onclick="follow(&#39;d1463c14-4543-e511-b908-9dcfd8948a71&#39;)">+加关注</a></div>
+        <script>getFollowStatus('d1463c14-4543-e511-b908-9dcfd8948a71');</script>
+    </div>
+</div>
+
+</div>
+
+			<div id="blog-calendar" style="">
+
+<table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar" border="0">
+    <tbody>
+        <tr>
+            <td colspan="7">
+                <table class="CalTitle" cellspacing="0" border="0">
+                    <tbody>
+                        <tr>
+                            <td class="CalNextPrev">
+                                <a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2019/09/17&#39;); return false;">&lt;</a>
+                            </td>
+                            <td align="center">2019年10月</td>
+                            <td align="right" class="CalNextPrev">
+                                <a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2019/11/17&#39;); return false;">&gt;</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+                    <th class="CalDayHeader" align="center" abbr="日" scope="col">日</th>
+                    <th class="CalDayHeader" align="center" abbr="一" scope="col">一</th>
+                    <th class="CalDayHeader" align="center" abbr="二" scope="col">二</th>
+                    <th class="CalDayHeader" align="center" abbr="三" scope="col">三</th>
+                    <th class="CalDayHeader" align="center" abbr="四" scope="col">四</th>
+                    <th class="CalDayHeader" align="center" abbr="五" scope="col">五</th>
+                    <th class="CalDayHeader" align="center" abbr="六" scope="col">六</th>
+        </tr>
+            <tr>
+                            <td class="CalOtherMonthDay" align="center">29</td>
+                            <td class="CalOtherMonthDay" align="center">30</td>
+                        <td class="" align="center">
+                            1
+                        </td>
+                        <td class="" align="center">
+                            2
+                        </td>
+                        <td class="" align="center">
+                            3
+                        </td>
+                        <td class="" align="center">
+                            4
+                        </td>
+                    <td class="CalWeekendDay" align="center">
+                        5
+                    </td>
+            </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            6
+                        </td>
+                            <td class="" align="center">
+                                7
+                            </td>
+                            <td class="" align="center">
+                                8
+                            </td>
+                            <td class="" align="center">
+                                9
+                            </td>
+                            <td class="" align="center">
+                                10
+                            </td>
+                            <td class="" align="center">
+                                11
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            12
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            13
+                        </td>
+                            <td class="" align="center">
+                                14
+                            </td>
+                            <td class="" align="center">
+                                15
+                            </td>
+                            <td class="" align="center">
+                                16
+                            </td>
+                            <td class="CalTodayDay" align="center">
+                                17
+                            </td>
+                            <td class="" align="center">
+                                18
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            19
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            20
+                        </td>
+                            <td class="" align="center">
+                                21
+                            </td>
+                            <td class="" align="center">
+                                22
+                            </td>
+                            <td class="" align="center">
+                                23
+                            </td>
+                            <td class="" align="center">
+                                24
+                            </td>
+                            <td class="" align="center">
+                                25
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            26
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            27
+                        </td>
+                            <td class="" align="center">
+                                28
+                            </td>
+                            <td class="" align="center">
+                                29
+                            </td>
+                            <td class="" align="center">
+                                30
+                            </td>
+                            <td class="" align="center">
+                                31
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                1
+                            </td>
+                        <td class="CalOtherMonthDay" align="center">
+                            2
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalOtherMonthDay" align="center">
+                            3
+                        </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                4
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                5
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                6
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                7
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                8
+                            </td>
+                        <td class="CalOtherMonthDay" align="center">
+                            9
+                        </td>
+                </tr>
+    </tbody>
+</table></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn">
+
+<!-- 搜索 -->
+<div id="sidebar_search" class="sidebar-block">
+    <div id="sidebar_search" class="mySearch">
+        <h3 class="catListTitle">搜索</h3>
+        <div id="sidebar_search_box">
+            <div id="widget_my_zzk" class="div_my_zzk">
+                <input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk">
+            </div>
+            <div id="widget_my_google" class="div_my_zzk">
+                <input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 常用链接 -->
+<div id="sidebar_shortcut" class="sidebar-block">
+    <div class="catListLink">
+<h3 class="catListTitle">
+常用链接
+</h3>
+<ul>
+		<li>
+
+<a href="https://www.cnblogs.com/leomYili/p/" title="我的博客的随笔列表">我的随笔</a>
+</li>
+		<li>
+
+<a href="https://www.cnblogs.com/leomYili/MyComments.html" title="我的发表过的评论列表">我的评论</a>
+</li>
+		<li>
+
+<a href="https://www.cnblogs.com/leomYili/OtherPosts.html" title="我评论过的随笔列表">我的参与</a>
+</li>
+		<li>
+
+<a href="https://www.cnblogs.com/leomYili/RecentComments.html" title="我的博客的评论列表">最新评论</a>
+</li>
+		<li>
+
+<a href="https://www.cnblogs.com/leomYili/tag/" title="我的博客的标签列表">我的标签</a>
+</li>
+
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div>
+
+
+</div>
+
+<!-- 最新随笔 -->
+<div id="sidebar_recentposts" class="sidebar-block">
+    <div class="catListEssay">
+<h3 class="catListTitle">最新随笔</h3>
+<ul>
+                <li>
+                    
+
+<a href="https://www.cnblogs.com/leomYili/p/10176228.html">1.页面搭建工具总结及架构思考</a>
+
+                </li>
+                <li>
+                    
+
+<a href="https://www.cnblogs.com/leomYili/p/7161609.html">2.Ajax的实现及使用-zepto</a>
+
+                </li>
+                <li>
+                    
+
+<a href="https://www.cnblogs.com/leomYili/p/7145445.html">3.jsPlumb之流程图项目总结及实例</a>
+
+                </li>
+                <li>
+                    
+
+<a href="https://www.cnblogs.com/leomYili/p/6472327.html">4.Ajax的实现及使用-原生对象</a>
+
+                </li>
+                <li>
+                    
+
+<a href="https://www.cnblogs.com/leomYili/p/6346526.html">5.jsPlumb.jsAPI阅读笔记(官方文档翻译)</a>
+
+                </li>
+                <li>
+                    
+
+<a href="https://www.cnblogs.com/leomYili/p/6215021.html">6.JavaScript事件详解-jQuery的事件实现（三）</a>
+
+                </li>
+                <li>
+                    
+
+<a href="https://www.cnblogs.com/leomYili/p/6066663.html">7.JavaScript事件详解-Zepto的事件实现（二）【新增fastclick阅读笔记】</a>
+
+                </li>
+                <li>
+                    
+
+<a href="https://www.cnblogs.com/leomYili/p/6051527.html">8.javaScirpt事件详解-原生事件基础（一）</a>
+
+                </li>
+                <li>
+                    
+
+<a href="https://www.cnblogs.com/leomYili/p/6004119.html">9.javascipt的【函数表达式】</a>
+
+                </li>
+                <li>
+                    
+
+<a href="https://www.cnblogs.com/leomYili/p/6019502.html">10.jquery和zepto的扩展方法extend</a>
+
+                </li>
+			
+
+</ul>
+</div>
+
+
+</div>
+
+
+<!-- 我的标签 -->
+<div id="sidebar_toptags" class="sidebar-block">
+    <div class="catListTag">
+<h3 class="catListTitle">我的标签</h3>
+<ul>
+
+        <li>
+            <a href="https://www.cnblogs.com/leomYili/tag/javascript/">javascript</a>(8)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/leomYili/tag/zepto/">zepto</a>(2)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/leomYili/tag/%E7%AC%94%E8%AE%B0/">笔记</a>(2)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/leomYili/tag/%E5%BA%93/">库</a>(1)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/leomYili/tag/%E6%82%9F%E4%BA%BA%E7%94%9F/">悟人生</a>(1)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/leomYili/tag/jQuery/">jQuery</a>(1)
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/leomYili/tag/event/">event</a>(1)
+        </li>
+
+</ul>
+</div>
+
+
+</div>
+
+<!-- 积分与排名 -->
+<div id="sidebar_scorerank" class="sidebar-block">
+    <div class="catListBlogRank">
+<h3 class="catListTitle">积分与排名</h3>
+<ul>
+	<li class="liScore">
+		积分 -	
+14552
+	</li>
+	<li class="liRank">
+		排名 -	
+43873
+	</li>
+</ul>
+</div>
+
+
+
+
+</div>
+
+<!-- 随笔分类、随笔档案、文章分类、新闻分类、相册、链接 -->
+<div id="sidebar_categories">
+    
+        <div id="sidebar_postcategory" class="catListPostCategory sidebar-block">
+            <h3 class="catListTitle">
+                
+
+随笔分类
+<span style="font-size:11px;font-weight:normal">(25)</span>
+
+
+            </h3>
+
+
+            <ul>
+
+                        <li>
+                            
+<a href="https://www.cnblogs.com/leomYili/category/723996.html" rel="" target="">
+    css相关(2)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/leomYili/category/723997.html" rel="" target="">
+    html5+css3相关
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/leomYili/category/723995.html" rel="" target="">
+    javaScript(9)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/leomYili/category/907532.html" rel="" target="">
+    jquery(2)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/leomYili/category/907533.html" rel="" target="">
+    zepto(3)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/leomYili/category/896566.html" rel="" target="">
+    配置管理(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/leomYili/category/723998.html" rel="" target="">
+    前端感悟(2)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/leomYili/category/723994.html" rel="" target="">
+    生活感触(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/leomYili/category/723999.html" rel="" target="">
+    学习笔记(4)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/leomYili/category/724002.html" rel="" target="">
+    移动相关（webapp）(1)
+</a>
+ 
+
+                        </li>
+
+            </ul>
+
+
+        </div>
+        <div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+            <h3 class="catListTitle">
+                
+
+随笔档案
+<span style="font-size:11px;font-weight:normal">(14)</span>
+
+
+            </h3>
+
+
+            <ul>
+
+                        <li>
+                            
+<a href="https://www.cnblogs.com/leomYili/archive/2018/12.html" rel="" target="">
+    2018年12月(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/leomYili/archive/2017/07.html" rel="" target="">
+    2017年7月(2)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/leomYili/archive/2017/02.html" rel="" target="">
+    2017年2月(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/leomYili/archive/2017/01.html" rel="" target="">
+    2017年1月(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/leomYili/archive/2016/12.html" rel="" target="">
+    2016年12月(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/leomYili/archive/2016/11.html" rel="" target="">
+    2016年11月(4)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/leomYili/archive/2016/10.html" rel="" target="">
+    2016年10月(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/leomYili/archive/2015/12.html" rel="" target="">
+    2015年12月(1)
+</a>
+ 
+
+                        </li>
+                        <li>
+                            
+<a href="https://www.cnblogs.com/leomYili/archive/2015/08.html" rel="" target="">
+    2015年8月(2)
+</a>
+ 
+
+                        </li>
+
+            </ul>
+
+
+        </div>
+
+</div>
+
+<!-- 最新评论 -->
+<div id="sidebar_recentcomments" class="sidebar-block">
+    <div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div class="RecentCommentBlock">
+        <ul>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/leomYili/p/6346526.html#4339652">1. Re:jsPlumb.jsAPI阅读笔记(官方文档翻译)</a></li>
+                    <li class="recent_comment_body">楼主你用的哪个版本哇，我用的版本是jsplumb@2.9.3，没有找到groups方法诶</li>
+                    <li class="recent_comment_author">--前端小萌新#_#</li>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/leomYili/p/10176228.html#4306417">2. Re:页面搭建工具总结及架构思考</a></li>
+                    <li class="recent_comment_body">@ 对角另一面公司内部项目，抱歉...</li>
+                    <li class="recent_comment_author">--leomYili</li>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/leomYili/p/10176228.html#4306069">3. Re:页面搭建工具总结及架构思考</a></li>
+                    <li class="recent_comment_body">你好，请问一下这个项目有开源的打算吗?有在线版可以体验一下吗？</li>
+                    <li class="recent_comment_author">--对角另一面</li>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/leomYili/p/10176228.html#4302526">4. Re:页面搭建工具总结及架构思考</a></li>
+                    <li class="recent_comment_body">@ jongde谢谢...</li>
+                    <li class="recent_comment_author">--leomYili</li>
+                    <li class="recent_comment_title"><a href="https://www.cnblogs.com/leomYili/p/10176228.html#4302460">5. Re:页面搭建工具总结及架构思考</a></li>
+                    <li class="recent_comment_body">谢谢博主的分享，这是一次非常有意义的阅读。请问我是否可以邀请您试用一下我们的产品呢？希望能得到您的反馈及建议！谢谢~原型设计工具mockplus协作设计平台iDoc另外再提供一个升级码：点击此处链接，...</li>
+                    <li class="recent_comment_author">--jongde</li>
+        </ul>
+    </div>
+</div>
+
+
+</div>
+
+
+
+<!-- 阅读排行榜 -->
+<div id="sidebar_topviewedposts" class="sidebar-block">
+    <div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock">
+        <ul style="word-break:break-all">
+                    <li>
+                        <a href="https://www.cnblogs.com/leomYili/p/6346526.html">
+                            1. jsPlumb.jsAPI阅读笔记(官方文档翻译)(32719)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/leomYili/p/7145445.html">
+                            2. jsPlumb之流程图项目总结及实例(14003)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/leomYili/p/6472327.html">
+                            3. Ajax的实现及使用-原生对象(2367)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/leomYili/p/6215021.html">
+                            4. JavaScript事件详解-jQuery的事件实现（三）(1392)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/leomYili/p/6051527.html">
+                            5. javaScirpt事件详解-原生事件基础（一）(788)
+                        </a>
+                    </li>
+        </ul>
+    </div>
+</div>
+
+
+</div>
+
+<!-- 评论排行榜 -->
+<div id="sidebar_topcommentedposts" class="sidebar-block">
+    <div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock">
+        <ul style="word-break:break-all">
+                    <li>
+                        <a href="https://www.cnblogs.com/leomYili/p/7145445.html">
+                            1. jsPlumb之流程图项目总结及实例(28)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/leomYili/p/6346526.html">
+                            2. jsPlumb.jsAPI阅读笔记(官方文档翻译)(19)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/leomYili/p/6051527.html">
+                            3. javaScirpt事件详解-原生事件基础（一）(7)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/leomYili/p/10176228.html">
+                            4. 页面搭建工具总结及架构思考(4)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/leomYili/p/6066663.html">
+                            5. JavaScript事件详解-Zepto的事件实现（二）【新增fastclick阅读笔记】(2)
+                        </a>
+                    </li>
+        </ul>
+    </div>
+</div>
+
+
+</div>
+
+<!-- 推荐排行榜 -->
+<div id="sidebar_topdiggedposts" class="sidebar-block">
+    
+<div id="topdigg_posts_wrap">
+    <div class="catListView">
+        <h3 class="catListTitle">推荐排行榜</h3>
+        <div id="TopDiggPostsBlock">
+            <ul style="word-break: break-all">
+                        <li>
+                            <a href="https://www.cnblogs.com/leomYili/p/6346526.html">
+                                1. jsPlumb.jsAPI阅读笔记(官方文档翻译)(9)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/leomYili/p/6051527.html">
+                                2. javaScirpt事件详解-原生事件基础（一）(7)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/leomYili/p/7145445.html">
+                                3. jsPlumb之流程图项目总结及实例(5)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/leomYili/p/6066663.html">
+                                4. JavaScript事件详解-Zepto的事件实现（二）【新增fastclick阅读笔记】(2)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/leomYili/p/10176228.html">
+                                5. 页面搭建工具总结及架构思考(2)
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright © 2019 leomYili
+<br><span id="poweredby">Powered by .NET Core 3.0.0 on Linux</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+
+
+</body></html>

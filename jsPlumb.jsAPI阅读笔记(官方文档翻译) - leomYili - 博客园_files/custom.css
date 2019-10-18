@@ -1,0 +1,26 @@
+#cnblogs_post_body h1{
+    background: #2175bc;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
+    color: #FFFFFF;
+    font-family: "微软雅黑" , "宋体" , "黑体" ,Arial;
+    font-size: 17px;
+    font-weight: bold;
+    height: 25px;
+    line-height: 25px;
+    margin: 15px 0 !important;
+    padding: 5px 0 5px 20px;
+    text-shadow: 2px 2px 3px #222222;
+}
+#cnblogs_post_body h2{
+    font-family: "微软雅黑" , "宋体" , "黑体" ,Arial;
+}
+#cnblogs_post_body h4{
+    background-color:#ccc;
+}
+.z-recommend{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 50px;
+    color:#ccc;
+}
