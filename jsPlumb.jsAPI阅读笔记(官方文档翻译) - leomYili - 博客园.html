@@ -149,6 +149,7 @@ jsPlumb.bind(<span class="hljs-string">"ready"</span>,<span class="hljs-function
 <p>jsPlumb也提供了拖动方法：</p>
 <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> secondInstance = jsPlumb.getInstance();
 secondInstance.draggable(<span class="hljs-string">"some element"</span>);</code></pre>
+<em>jsPlumb.draggable(dom元素, {containment: 'parent'})这样这个dom元素只能在他的父元素里拖拽</em>
 <hr>
 <p>重绘，每次使用连线时，都会导致相关联的元素重绘，但当加载大量数据时，可以使用：</p>
 <pre><code class="hljs javascript">jsPlumb.setSuspendDrawing(<span class="hljs-literal">true</span>);
@@ -174,7 +175,10 @@ jsPlumb.setSuspendDrawing(<span class="hljs-literal">false</span>,<span class="h
 <span class="hljs-string">Endpoint :</span> <span class="hljs-string">"Dot"</span>,<span class="hljs-comment">//端点（锚点）的样式声明（Dot）</span>
 <span class="hljs-string">Endpoints :</span> [ <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span> ],<span class="hljs-comment">//多个端点的样式声明（Dot）</span>
 <span class="hljs-string">EndpointOverlays :</span> [ ],<span class="hljs-comment">//端点的重叠</span>
-<span class="hljs-string">EndpointStyle :</span> { <span class="hljs-string">fill :</span> <span class="hljs-string">"#456"</span> },<span class="hljs-comment">//端点的css样式声明</span>
+<span class="hljs-string">EndpointStyle :</span> { stroke: "#b6c5ff",
+                fill: "white",
+                radius: 3,
+                strokeWidth: 2} //这样可以出现带边框的圆形 ,<span class="hljs-comment">//端点的css样式声明</span>
 <span class="hljs-string">EndpointStyles :</span> [ <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span> ],<span class="hljs-comment">//同上</span>
 <span class="hljs-string">EndpointHoverStyle :</span> <span class="hljs-literal">null</span>,<span class="hljs-comment">//鼠标经过样式</span>
 <span class="hljs-string">EndpointHoverStyles :</span> [ <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span> ],<span class="hljs-comment">//同上</span>
@@ -290,7 +294,7 @@ cssClass，附加到Endpoint创建的元素的CSS类<br>
 hoverClass，当鼠标悬停在元素或连接的线上时附加到EndPoint创建的元素，</li>
 <li><p>Blank：空白</p></li>
 </ol>
-<h3 id="overlays叠加层">Overlays（叠加层）</h3>
+<h3 id="overlays叠加层">Overlays（叠加层）</h3><em>在connect连线中需要重新写一遍,不然不生效,</em>
 <p>jsPlumb有五种类型的叠加：</p>
 <ol>
 <li><p>Arrow：箭头，在连接器的某个点绘制的可配置箭头，可以控制箭头的长度和宽度,参数有：<br>
@@ -346,6 +350,7 @@ setLocation-设置当前位置</p>
 });</code></pre>
 <p>而在addEndpoint和makeSource方法中，则不能使用<code>overlays</code>,需要使用<code>connectOverlays</code>.<br>
 也可以使用<code>addOverlay</code>:</p>
+<em>jsPlumb.connect({source:dom,target:dom,overlays:[遮罩层..]},common)才可以重置遮罩层,直接写在common里没有效果</em>
 <pre><code class="hljs groovy">var e = jsPlumb.addEndpoint(<span class="hljs-string">"someElement"</span>);
 e.addOverlay([ <span class="hljs-string">"Arrow"</span>, { <span class="hljs-string">width:</span><span class="hljs-number">10</span>, <span class="hljs-string">height:</span><span class="hljs-number">10</span>, <span class="hljs-string">id:</span><span class="hljs-string">"arrow"</span> }]);</code></pre>
 <p>当然还有获取叠加层的方法：<code>getOverlay(id)</code>这里的id与元素中的id不同，只是组件在jsPlumb中的唯一标识而已，在控制台打印之后，能看到内部提供了很多方法,另外注意原型链中的方法。<br>
@@ -406,6 +411,7 @@ e.addOverlay([ <span class="hljs-string">"Arrow"</span>, { <span class="hljs-str
 </ol>
 <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> conn = jsPlumb.connect({...});
 jsPlumb.detach(conn);</code></pre>
+<em>我不知道为什么,在项目中用的版本删除连线要用deleteConnection,项目版本2.8.0</em>
 <p>如果使用该方法来删除连接线，那么会有几种情况：</p>
 <ul>
 <li>如果使用<code>jsPlumb.connect</code>创建的线，而且没有设置<code>deleteEndpointsOnDetach:false</code>,则使用detach时，端点也会一起被移除。</li>
